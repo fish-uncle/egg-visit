@@ -9,3 +9,7 @@
 * app.js 升级为 class 形式 需要你的 egg 版本 2.14.2 以上
 * middleware 添加 gzip 、access、notfound_handler
 
+## [1.0.1] - 2019-03-14
+### 修复
+* 创建router 文件夹bug
+

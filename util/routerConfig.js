@@ -8,10 +8,6 @@ function mkdirs(dirpath, callback) {
       if (typeof callback === 'function') {
         callback();
       }
-    } else {
-      mkdirs(path.dirname(dirpath), function () {
-        fs.mkdir(dirpath, callback);
-      });
     }
   })
 };
