@@ -14,3 +14,9 @@
 * 创建router 文件夹bug
 * 添加mockjs依赖
 
+## [1.0.2] - 2020-08-20
+### 修复
+* proxy 报错无法捕捉
+### 更新
+* error和notfound配置，改为middleware内写入
+

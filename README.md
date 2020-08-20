@@ -1,6 +1,6 @@
 # egg-visit
 
-![version](https://img.shields.io/badge/version-v1.0.0-brightgreen.svg?style=flat-square) [![MIT](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](http://opensource.org/licenses/MIT) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
+![version](https://img.shields.io/badge/version-v1.0.2-brightgreen.svg?style=flat-square) [![MIT](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](http://opensource.org/licenses/MIT) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
 ### 支持
 > app.js 使用 class 形式 
@@ -35,14 +35,6 @@ visit:{
   },
   error: {
     enabled: true,
-    404:{
-      html: '/404',
-      json: {data:'Page loss'}
-    },
-    500：{
-      html: '/500',
-      json: {data:'Server error'}
-    }
   }
 }
 ```

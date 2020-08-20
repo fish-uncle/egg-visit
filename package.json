@@ -1,6 +1,6 @@
 {
   "name": "egg-visit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "集访问日志，gzip，error，mock，proxy 一体的 egg 插件",
   "main": "",
   "scripts": {
@@ -22,10 +22,8 @@
     "koa-is-json": "^1.0.0",
     "koa-onerror": "^4.1.0",
     "uuid": "^3.3.2",
-    "zlib": "^1.0.5"
-  },
-  "devDependencies": {
-    "mockjs": "^1.0.1-beta3"
+    "zlib": "^1.0.5",
+    "mockjs": "^1.1.0"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"

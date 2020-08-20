@@ -2,7 +2,6 @@
 const path = require('path');
 
 const middle = async (ctx, next, proxyItem, proxy, method) => {
-  await next();
   const {url, app, request} = ctx;
   const {timeout} = proxy;
   const proxyLogger = ctx.getLogger('proxyLogger');
@@ -15,16 +14,19 @@ const middle = async (ctx, next, proxyItem, proxy, method) => {
     dataType: 'json',
     headers: ctx.headers
   };
-  try {
+  let currentUrl = `${url}`
+  if (proxyItem.pathRewrite) {
+    for (let key in proxyItem.pathRewrite) {
+      const reg = new RegExp(key);
+      currentUrl = currentUrl.replace(reg, proxyItem.pathRewrite[key]);
+    }
+  }
+  ctx.runInBackground(async () => {
     result = await app['curl'](path.join(proxyItem.target, url), options);
-    proxyLogger.info(url + ' ---> ' + path.join(proxyItem.target, url) + ' SUCCESS');
+    proxyLogger.info(url + ' ---> ' + path.join(proxyItem.target, url));
     ctx.body = result.data;
     ctx.status = result.status;
-  } catch (result) {
-    proxyLogger.info(url + ' ---> ' + path.join(proxyItem.target, url) + ' ERROR');
-    proxyLogger.info(result);
-    app.coreLogger.error(result);
-  }
+  });
 };
 module.exports = app => {
   const {router, config} = app;
