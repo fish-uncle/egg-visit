@@ -20,3 +20,8 @@
 ### 更新
 * error和notfound配置，改为middleware内写入
 
+## [1.0.3] - 2020-08-20
+### 修复
+* error_handler 引入问题
+### 更新
+* 清除部分打印
