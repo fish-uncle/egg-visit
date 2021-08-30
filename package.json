@@ -1,44 +1,76 @@
 {
-  "name": "egg-visit",
-  "version": "1.0.5",
-  "description": "集访问日志，gzip，error，mock，proxy 一体的 egg 插件",
-  "main": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "egg",
-    "egg-plugin",
-    "eggPlugin",
-    "fishuncle",
-    "mock",
-    "proxy",
-    "log"
-  ],
-  "author": "fishuncle",
-  "license": "MIT",
-  "dependencies": {
-    "chalk": "^2.4.2",
-    "koa-is-json": "^1.0.0",
-    "koa-onerror": "^4.1.0",
-    "uuid": "^3.3.2",
-    "zlib": "^1.0.5",
-    "mockjs": "^1.1.0"
-  },
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:fish-uncle/egg-visit.git"
-  },
-  "eggPlugin": {
-    "name": "visit",
-    "env": [
-      "local",
-      "test",
-      "unittest",
-      "prod"
-    ]
-  }
+	"name": "egg-visit",
+	"version": "1.0.5",
+	"description": "集访问日志，gzip，error，mock，proxy 一体的 egg 插件",
+	"main": "",
+	"scripts": {
+		"commit": "git add .&&git-cz",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"egg",
+		"egg-plugin",
+		"eggPlugin",
+		"fishuncle",
+		"mock",
+		"proxy",
+		"log"
+	],
+	"author": "fishuncle",
+	"license": "MIT",
+	"dependencies": {
+		"chalk": "^2.4.2",
+		"koa-is-json": "^1.0.0",
+		"koa-onerror": "^4.1.0",
+		"uuid": "^3.3.2",
+		"zlib": "^1.0.5",
+		"mockjs": "^1.1.0"
+	},
+	"publishConfig": {
+		"registry": "http://registry.npmjs.org"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:fish-uncle/egg-visit.git"
+	},
+	"eggPlugin": {
+		"name": "visit",
+		"env": [
+			"local",
+			"test",
+			"unittest",
+			"prod"
+		]
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^9.1.2",
+		"@commitlint/config-conventional": "^13.1.0",
+		"commitizen": "^4.2.4",
+		"commitlint-config-cz": "^0.13.2",
+		"cz-conventional-changelog": "^3.3.0",
+		"git-cz": "^4.7.6",
+		"eslint": "^6.7.2",
+		"eslint-plugin-flowtype": "^5.4.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^3.3.1",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-sonarjs": "^0.6.0",
+		"eslint-plugin-standard": "^5.0.0",
+		"prettier": "^2.2.1"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"config": {
+		"commitizen": {
+			"path": "git-cz"
+		}
+	},
+	"lint-staged": {
+		"*.{js,ts,css,vue,scss}": "prettier  --plugin-search-dir ./node_modules --config .prettierrc --write"
+	}
 }
